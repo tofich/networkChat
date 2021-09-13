@@ -43,14 +43,9 @@ public class Controller {
 
     public void sendMsg(){
         if (!jtf.getText().equals("")) {
-            try {
                 String textMsg = jtf.getText();
-                client.out.writeUTF(textMsg);
-                //client.out.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            jtf.clear();
+                client.sendMsg(textMsg);
+                jtf.clear();
         }
     }
 

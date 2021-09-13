@@ -4,10 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainWindow" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aa.trusov.client.Controller">
-   <children>
+<AnchorPane fx:id="mainChatWindow" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aa.trusov.client.Controller">
       <VBox layoutX="11.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="376.0" prefWidth="578.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="14.0">
-         <children>
             <GridPane fx:id="gridPaneAuth">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="102.0" />
@@ -19,7 +17,6 @@
                 <RowConstraints />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
-               <children>
                    <TextField fx:id="jtfAuthLogin" prefWidth="187.0" promptText="Логин" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
@@ -32,7 +29,6 @@
                    <Button fx:id="authBtn" mnemonicParsing="false" onAction="#auth" text="Подключиться" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                    <Label fx:id="labelAuth1" text="Авторизация:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                   <Label fx:id="labelAuth2" text="Вы успешно подключены к серверу localhost" GridPane.columnSpan="3" GridPane.rowIndex="1" visible="false"/>
-               </children>
             </GridPane>
             <TextArea fx:id="jta" editable="false" prefHeight="314.0" prefWidth="578.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -46,7 +42,6 @@
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
-               <children>
                   <TextField fx:id="jtf" maxWidth="1.7976931348623157E308" onAction="#sendMsg" prefHeight="25.0" prefWidth="445.0" promptText="Введите текст вашего сообщения" GridPane.hgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets />
@@ -56,9 +51,6 @@
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin></Button>
-               </children>
             </GridPane>
-         </children>
       </VBox>
-   </children>
 </AnchorPane>

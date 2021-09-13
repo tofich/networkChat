@@ -65,6 +65,15 @@ public class ClientConnection implements ServerConst, Server_API {
         }
     }
 
+    public void sendMsg(String textMsg){
+        try {
+            out.writeUTF(textMsg);
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void disconnect(){
         try {
             out.writeUTF(CLOSE_CONNECTION);
