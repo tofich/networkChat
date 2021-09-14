@@ -70,7 +70,7 @@ public class ClientHandler implements Server_API {
     public void sendMessage(String msg){
         try {
             out.writeUTF(msg);
-            //out.flush();
+            out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

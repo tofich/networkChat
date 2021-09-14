@@ -76,15 +76,13 @@ public class ClientConnection implements ServerConst, Server_API {
 
     public void disconnect(){
         try {
-            out.writeUTF(CLOSE_CONNECTION);
+            if (isAuthorized()) {
+                out.writeUTF(CLOSE_CONNECTION);
+            }
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public String getSuccessConnectionTextLabel(){
-      return SERVER_SUCCESS_CONNECTION;
     }
 
 }

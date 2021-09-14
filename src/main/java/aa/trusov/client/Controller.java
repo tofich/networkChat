@@ -1,11 +1,12 @@
 package aa.trusov.client;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 
 
@@ -60,14 +61,14 @@ public class Controller {
     }
     //добавить на форму поля и передать их сюда, и повесить на кнопку
     public void auth(){
-        if(!jtfAuthLogin.getText().equals("") || !jtfAuthPass.getText().equals("")) {
+        if(!jtfAuthLogin.getText().equals("") && !jtfAuthPass.getText().equals("")) {
             client.auth(jtfAuthLogin.getText(), jtfAuthPass.getText());
             jtfAuthLogin.setText("");
             jtfAuthPass.setText("");
-        } else
-        {
-            jtfAuthLogin.setStyle("-fx-border-color:red; -fx-border-radius: 3px;");
-            jtfAuthPass.setStyle("-fx-border-color:red; -fx-border-radius: 3px;");
+        } else {
+            verifyAndHighlightRequiredField(jtfAuthLogin);
+            verifyAndHighlightRequiredField(jtfAuthPass);
+            showMessage("Please, enter all required fields.");
         }
     }
 
@@ -83,5 +84,25 @@ public class Controller {
 
     public void disconnect(){
         client.disconnect();
+    }
+
+    private void setErrorStyle(TextField tf) {
+        ObservableList<String> styleClass = tf.getStyleClass();
+        if(!styleClass.contains("errorTextField")) {
+            styleClass.add("errorTextField");
+        }
+    }
+
+    private void removeErrorStyle(TextField tf) {
+        ObservableList<String> styleClass = tf.getStyleClass();
+        styleClass.removeAll(Collections.singleton("errorTextField"));
+    }
+
+    private void verifyAndHighlightRequiredField(TextField tf){
+        if (tf.getText().equals("")) {
+            setErrorStyle(tf);
+        } else {
+            removeErrorStyle(tf);
+        }
     }
 }

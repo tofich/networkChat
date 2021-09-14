@@ -1,3 +1,7 @@
 .errorTextField {
-    -fx-border-color:red;
+    -fx-focus-color: #d35244;
+    -fx-border-color: #d35244;
+    -fx-border-radius: 3px;
+    -fx-faint-border-color: #d3524422;
+    -fx-faint-focus-color: #d3524422;
 }
